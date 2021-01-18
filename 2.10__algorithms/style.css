@@ -1,0 +1,24 @@
+.container h1 {
+    margin-left: 10vw;
+}
+
+.container p {
+    margin-left: 20vw;
+}
+form input {
+    margin-left: 10vw;
+    width: 70vw;
+}
+.output-container h2 {
+    margin-top: 40px;
+    margin-left: 10vw;
+}
+
+.output-container span {
+    margin-top: 10px;
+    margin-left: 10vw;
+
+}
+li {
+    list-style-type: none;
+}
