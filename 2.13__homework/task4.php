@@ -8,65 +8,61 @@
 <?php 
     $title = 'Задание 4';
     $red = (bool) rand(0, 1);
-    $red ? $attr="red" : $attr="";
 
     $result3 = [
-        'AUTHORS' => [
+        'authors' => [
             'pelevin@eksmo.ru' =>[
     
-                'FIO' => 'Viiktor Olegovich Pelevin',
-                'BORN' => '22 november 1962'
+                'fio' => 'Viiktor Olegovich Pelevin',
+                'born' => '22 november 1962'
     
             ],
     
             'duma@eksmo.ru'=>[
-                'FIO' => 'Aleksandr Duma',
-                'BORN' => '24 july 1802'
+                'fio' => 'Aleksandr Duma',
+                'born' => '24 july 1802'
             ]
         ],
     
-        'BOOKS' => [
+        'books' => [
             [
-                'TITLE' => 'Nepobedimoe solnce',
-                'EMAIL' => 'pelevin@eksmo.ru'
+                'title' => 'Nepobedimoe solnce',
+                'email' => 'pelevin@eksmo.ru'
             ],
     
             [
-                'TITLE' => 'Secret Views of Mount Fuji',
-                'EMAIL' => 'pelevin@eksmo.ru'
+                'title' => 'Secret Views of Mount Fuji',
+                'email' => 'pelevin@eksmo.ru'
             ],
     
             [
-                'TITLE' => 'Caligula',
-                'EMAIL' => 'duma@eksmo.ru'
+                'title' => 'Caligula',
+                'email' => 'duma@eksmo.ru'
             ],
     
             [
-                'TITLE' => 'The Hunter and the Lover',
-                'EMAIL' => 'duma@eksmo.ru'
+                'title' => 'The Hunter and the Lover',
+                'email' => 'duma@eksmo.ru'
             ]      
         ]
     ];?>    
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title><?=$title?></title>
     <style type="text/css">.red {color: red;}</style>
 </head>
 <body>
-<div class=<?=$attr?>>
-    <h1><?=$title?></h1>
-</div>
-
-<div>Авторов на портале &lt<?=count($result3['AUTHORS'])?>&gt</div>
-    <?php foreach ($result3['BOOKS'] as $book): ?>
+    <h1 class="<? $red ? $attr="red" : $attr=""; echo $attr;?>"><?=$title?></h1>
+    <div>Авторов на портале &lt<?=count($result3['authors'])?>&gt</div>
+    <?php foreach ($result3['books'] as $book): ?>
         <p> 
-            Книга &lt<?=$book['TITLE']?>&gt, 
-            ее написал &#160 &lt <?=$result3['AUTHORS'][$book['EMAIL']]['FIO']?>&gt &#160 
-            &lt<?=$result3['AUTHORS'][$book['EMAIL']]['BORN']?>&gt &#160
-            &#40&lt<?=$book['EMAIL']?>&gt&#41
+            Книга &lt<?=$book['title']?>&gt, 
+            ее написал &#160 &lt <?=$result3['authors'][$book['email']]['fio']?>&gt &#160 
+            &lt<?=$result3['authors'][$book['email']]['born']?>&gt &#160
+            &#40&lt<?=$book['email']?>&gt&#41
         </p>
     <?php endforeach; ?>   
 </body>

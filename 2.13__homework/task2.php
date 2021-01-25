@@ -12,24 +12,24 @@
     -->
 <?php
 $result2 = [
-    'AUTHORS' => [
+    'authors' => [
         [
-            'FIO' => 'Viiktor Olegovich Pelevin',
-            'EMAIL' => 'pelevin@eksmo.ru'
+            'fio' => 'Viiktor Olegovich Pelevin',
+            'email' => 'pelevin@eksmo.ru'
         ],
         [
-            'FIO' => 'Aleksandr Duma',
-            'EMAIL' => 'duma@eksmo.ru'
+            'fio' => 'Aleksandr Duma',
+            'email' => 'duma@eksmo.ru'
         ]
     ],
-    'BOOKS' => [
+    'books' => [
         [
-            'TITLE' => 'Nepobedimoe solnce',
-            'EMAIL' => 'pelevin@eksmo.ru'
+            'title' => 'Nepobedimoe solnce',
+            'email' => 'pelevin@eksmo.ru'
         ],
         [
-            'TITLE' => 'Grafinya de Monsoro',
-            'EMAIL' => 'duma@eksmo.ru'
+            'title' => 'Grafinya de Monsoro',
+            'email' => 'duma@eksmo.ru'
         ]    
     ]
 ];?>
@@ -65,18 +65,18 @@ $result2 = [
         </div>
 
         <div class="output-array__styled"style = "border: 1px solid #141414; width: 50vw; margin-top: 20px;">
-            <h4>Авторы</h5>
-            <?php foreach ($result2['AUTHORS'] as $author): ?>
-                <span> ФИО: <?=$author['FIO'] ?> </span>
+            <h4>Авторы</h4>
+            <?php foreach ($result2['authors'] as $author): ?>
+                <span> ФИО: <?=$author['fio'] ?> </span>
                 <br>
-                <span> Email: <?=$author['EMAIL'] ?> </span>
+                <span> email: <?=$author['email'] ?> </span>
                 <br><br>
              <?php endforeach; ?>   
-            <h4>Книга:</h5>
-            <?php foreach ($result2['BOOKS'] as $book): ?>
-                <span> Название книги: <?= $book['TITLE'] ?> </span> 
+            <h4>Книга:</h4>
+            <?php foreach ($result2['books'] as $book): ?>
+                <span> Название книги: <?= $book['title'] ?> </span> 
                 <br>
-                <span> Email автора: <?= $book['EMAIL'] ?> </span>
+                <span> email автора: <?= $book['email'] ?> </span>
                 <br><br>
              <?php endforeach; ?>   
         </div>

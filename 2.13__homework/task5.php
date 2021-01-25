@@ -20,7 +20,7 @@ $city2Radius — радиус второго города.
     $city2Radius = rand(10, 100); 
     $cars = []; 
 
-    for ($i=0; $i < 10; $i++) { 
+    for ($i = 0; $i < 10; $i++) { 
         $cars[$i]['location'] = rand(0, 1000);
         $location = $cars[$i]['location'];
         

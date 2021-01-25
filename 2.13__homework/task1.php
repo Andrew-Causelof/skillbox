@@ -10,13 +10,13 @@
     -->
 <?php
 $result1 = [
-    'AUTHOR' => [
-        'FIO' => 'Viiktor Olegovich Pelevin',
-        'EMAIL' => 'info@eksmo.ru'
+    'author' => [
+        'fio' => 'Viiktor Olegovich Pelevin',
+        'email' => 'info@eksmo.ru'
     ],
-    'BOOK' => [
-        'TITLE' => 'Nepobedimoe solnce',
-        'EMAIL' => 'info@eksmo.ru'    
+    'book' => [
+        'title' => 'Nepobedimoe solnce',
+        'email' => 'info@eksmo.ru'    
     ]
 ];?>
 
@@ -47,14 +47,14 @@ $result1 = [
         </div>
 
         <div class="output-array__styled"style = "border: 1px solid #141414; width: 50vw; margin-top: 20px;">
-            <h4>Автор</h5>
-                <span> ФИО: <?=$result1['AUTHOR']['FIO'] ?> </span>
+            <h4>Автор</h4>
+                <span> ФИО: <?=$result1['author']['fio'] ?> </span>
                 <br>
-                <span> Email: <?=$result1['AUTHOR']['EMAIL'] ?> </span>
-            <h4>Книга:</h5>
-                <span> Название книги: <?=$result1['BOOK']['TITLE'] ?> </span> 
+                <span> Email: <?=$result1['author']['email'] ?> </span>
+            <h4>Книга:</h4>
+                <span> Название книги: <?=$result1['book']['title'] ?> </span> 
                 <br>
-                <span> Email автора: <?=$result1['BOOK']['EMAIL'] ?> </span>
+                <span> Email автора: <?=$result1['book']['email'] ?> </span>
         </div>
       
     </div>

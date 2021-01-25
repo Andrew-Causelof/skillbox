@@ -11,39 +11,39 @@
 $title = 'Вывод по всем книгам:';
 
 $result3 = [
-    'AUTHORS' => [
+    'authors' => [
         'pelevin@eksmo.ru' =>[
 
-            'FIO' => 'Viiktor Olegovich Pelevin',
-            'BORN' => '22 november 1962'
+            'fio' => 'Viiktor Olegovich Pelevin',
+            'born' => '22 november 1962'
 
         ],
 
         'duma@eksmo.ru'=>[
-            'FIO' => 'Aleksandr Duma',
-            'BORN' => '24 july 1802'
+            'fio' => 'Aleksandr Duma',
+            'born' => '24 july 1802'
         ]
     ],
 
-    'BOOKS' => [
+    'books' => [
         [
-            'TITLE' => 'Nepobedimoe solnce',
-            'EMAIL' => 'pelevin@eksmo.ru'
+            'title' => 'Nepobedimoe solnce',
+            'email' => 'pelevin@eksmo.ru'
         ],
 
         [
-            'TITLE' => 'Secret Views of Mount Fuji',
-            'EMAIL' => 'pelevin@eksmo.ru'
+            'title' => 'Secret Views of Mount Fuji',
+            'email' => 'pelevin@eksmo.ru'
         ],
 
         [
-            'TITLE' => 'Caligula',
-            'EMAIL' => 'duma@eksmo.ru'
+            'title' => 'Caligula',
+            'email' => 'duma@eksmo.ru'
         ],
 
         [
-            'TITLE' => 'The Hunter and the Lover',
-            'EMAIL' => 'duma@eksmo.ru'
+            'title' => 'The Hunter and the Lover',
+            'email' => 'duma@eksmo.ru'
         ]      
     ]
 ];
@@ -51,7 +51,7 @@ $result3 = [
 if(isset($_POST['solveIt'])) {
 
     $title = 'Вывод по перемешанным книгам:';
-    shuffle($result3['BOOKS']);
+    shuffle($result3['books']);
 
 }?>
 
@@ -84,13 +84,13 @@ if(isset($_POST['solveIt'])) {
         </div>
 
         <div class="output-array__styled"style = "border: 1px solid #141414;  margin-top: 20px;">
-        <h4><?=$title?></h5>
-            <?php foreach ($result3['BOOKS'] as $book): ?>
+        <h4><?=$title?></h4>
+            <?php foreach ($result3['books'] as $book): ?>
                 <span> 
-                    Книга: <?=$book['TITLE']?>, 
-                    ее написал &lt <?=$result3['AUTHORS'][$book['EMAIL']]['FIO']?>&gt
-                    &lt<?=$result3['AUTHORS'][$book['EMAIL']]['BORN']?>&gt
-                    &#40&lt<?=$book['EMAIL']?>&gt&#41
+                    Книга: <?=$book['title']?>, 
+                    ее написал &lt <?=$result3['authors'][$book['email']]['fio']?>&gt
+                    &lt<?=$result3['authors'][$book['email']]['born']?>&gt
+                    &#40&lt<?=$book['email']?>&gt&#41
                 </span>
                 <br><br>
              <?php endforeach; ?>   
