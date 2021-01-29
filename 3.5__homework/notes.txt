@@ -1,0 +1,14 @@
+
+
+
+
+
+3. Точно нужно && isset($inputLogin) && isset($inputPassword) в
+
+lseif ($isAuth === false && isset($inputLogin) && isset($inputPassword)) ?
+
+4. $DIR_SUCCESS станет $dirSuccess иди сделайте в виде константы
+
+
+
+С уважением, Сергунин Илья.
