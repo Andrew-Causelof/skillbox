@@ -1,0 +1,10 @@
+php_value error_reporting -1
+php_value display_errors on
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteBase /route/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) /route/index.php? [QSA,L]
+</IfModule>
