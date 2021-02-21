@@ -56,6 +56,7 @@ a:hover {
     margin: 0;
     padding: 0;
     clear: both;
+    font-size: 16px;
 }
 
 .main-menu li {
@@ -68,6 +69,7 @@ a:hover {
 
 .main-menu.bottom {
     float: left;
+    font-size: 12px;
 }
 
 .main-menu.bottom li {
@@ -206,3 +208,6 @@ a:hover {
  .error-message {
      color: red;
  }
+.main-menu li a.active {
+    text-decoration: underline;
+}

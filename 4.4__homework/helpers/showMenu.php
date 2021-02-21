@@ -1,24 +1,7 @@
 <?php
 namespace menu;
 
-/**
- * функция- правило для сортировки многомерного массива по ключу
- * возвращает true если первое значение больше второго
- */
-function moreThan($key) {
-    return function ($a, $b) use ($key) {
-        return $a[$key] > $b[$key];
-    };
-}
-/**
- * функция- правило для сортировки многомерного массива по ключу
- * возвращает true если первое значение меньше второго
- */
-function lessThan($key) {
-    return function ($a, $b) use ($key) {
-        return $a[$key] < $b[$key];
-    };
-}
+use function mainComponents\isCurrentUrl;
 
 /** Функция для сортировки многомерного ассоциативного массива меню
  * @param array $array - входной массив, для сортировки
@@ -27,20 +10,10 @@ function lessThan($key) {
  */
 function arraySort(array $array, $key = 'title', $sort = SORT_ASC): array
 {
-
-    if($sort == SORT_ASC) {
-
-        usort($array, moreThan($key));
-
-        return $array;
-
-    } elseif ($sort == SORT_DESC) {
-
-        usort($array, lessThan($key));
-
-        return $array;
-
-    }
+     usort($array, function ($a, $b) use ($key, $sort) {
+        return $sort == SORT_ASC ? $a[$key] > $b[$key] : $a[$key] < $b[$key];
+    });
+    return $array;
 }
 
 /** Функцию обрезает строку если ее длина больше 15 символов
@@ -52,7 +25,7 @@ function cutString(string $line, int $length = 12, string $appends = '...'): str
 {
 
     if(mb_strlen($line) > $length + 3){
-        return  mb_substr($line, 0, $length) . $appends;
+        return  mb_strimwidth($line, 0, $length + 3, $appends);
     } else {
         return $line;
     }
@@ -61,37 +34,24 @@ function cutString(string $line, int $length = 12, string $appends = '...'): str
 
 /**
  * Функция вывода меню в соответствии с переданным параметром
- * @param string $menuName название меню для вывода header/footer
  * @param array $menuArr ассоциированный массив меню для вывода
- * @param string $url  - строка текущего раздела, без запроса
- * @return html список меню в соответствии с переданным параметром
+ * @param string $typeMenu название меню для вывода header/footer
  */
-function showMenu(string $menuName, array $menuArr, string $url){
+
+function showMenu(array $menuArr, string $typeMenu = ''){
 
     if(isset($menuArr)) {
 
-        if($menuName == 'header') {
+        ?> <ul class="main-menu <?=$typeMenu?>"> <?php
+        foreach($menuArr as $item):
+            ?>  
+            <li><a href="<?=$item['path']?>" class="<?= isCurrentUrl($item['path']) ? 'active' : '' ?>"><?=cutString($item['title'])?></a></li>
+            <?php
+        endforeach;
+        ?> </ul> <?php
 
-            $menuArr = arraySort($menuArr, 'sort', SORT_ASC);
-            foreach($menuArr as $item):
-                $item['path'] ==  $url ? $style = "font-size: 16px; text-decoration:underline;" : $style = "font-size: 16px;"
-                ?>  
-                <li><a href="<?=$item['path']?>" style="<?=$style?>"><?=cutString($item['title'])?></a></li>
-                <?
-            endforeach;
-
-        } elseif ($menuName == 'footer') {
-    
-            $menuArr = arraySort($menuArr, 'title', SORT_DESC);
-            foreach($menuArr as $item):
-                $item['path'] ==  $url ? $style = "font-size: 12px; text-decoration:underline;" : $style = "font-size: 12px;"
-                ?>  
-                <li><a href="<?=$item['path']?>" style="<?=$style?>"><?=cutString($item['title'])?></a></li>
-                <?
-            endforeach;
-           
-        } else {
-            echo '<div style="color: red;">ERROR: Не верно передан параметр в функцию menu/showMenu </div>';
-        }    
+    } else {
+        echo '<div style="color: red;">ERROR: Не верно передан параметр в функцию menu/showMenu </div>';
     }
 }
+

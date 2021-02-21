@@ -47,21 +47,16 @@ if (isset($_POST['login'])) {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="/styles.css" rel="stylesheet">
     <title>Project - ведение списков</title>
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
 </head>
 
 <body>
-
-     <h1 style='color: white'><?= mainComponents\getHeader($_SERVER['REQUEST_URI'], include DIR_MENU)?> </h1>
-
+     
     <div class="header">
     	<div class="logo"><img src="/i/logo.png" alt="Project"></div>
         <div class="clearfix"></div>
     </div>
 
     <div class="clear">
-        <ul class="main-menu">
-             <?=menu\showMenu('header', include DIR_MENU, mainComponents\isCurrentUrl($_SERVER['REQUEST_URI']))?>
-        </ul>
-      
+        <?=menu\showMenu(menu\arraySort(include DIR_MENU,'title', SORT_DESC))?>
     </div>
